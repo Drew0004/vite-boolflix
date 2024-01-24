@@ -3,10 +3,12 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
 import axios from 'axios';
+import { store } from './store.js';
 
 export default {
     data() {
         return {
+            store
 
         };
     },
@@ -18,23 +20,24 @@ export default {
     methods: {
 
     },
-    mounted(){
-        axios.get()
-        .then();
+    created(){
+        axios.get(this.store.baseUrlMovies)
+        .then((response)=>{
+            this.store.movies = response.data.results;
+            console.log(this.store.movies);
+        });
     }
 }
 </script>
 
 <template>
-    <h1>
-        Mia App
-    </h1>
 
     <AppHeader />
 
     <AppMain />
 
     <AppFooter />
+
 </template>
 
 <style lang="scss">
