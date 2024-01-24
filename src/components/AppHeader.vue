@@ -34,19 +34,43 @@ export default {
 </script>
 
 <template>
-    <header>
-        
-        <div>
-            <!-- <img src="../../public/LogoNetflix.png" alt="Logo Netflix"> -->
+    <header class=" w-100 bg-dark py-4">
+        <div class="container-fluid px-4">
+            <div class="row justify-content-between align-items-center">
+
+                <div class="logo-container">
+                    <img class="w-100" src="../../public/LogoNetflix.png" alt="Logo Netflix">
+                </div>
+
+                <div class="col-auto">
+                    <form @submit.prevent="getDataFromAPi()" class="d-flex">
+                        <div class="me-3">
+                            <input v-model="this.store.searchName" type="text" class="form-control" placeholder="Cerca un film o una serie...">
+                        </div>
+                        <div>
+                            <button class="btn my-search-button text-white">Cerca</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
         </div>
-        
-        <form @submit.prevent="getDataFromAPi()">
-            <input v-model="this.store.searchName" type="text" placeholder="Cerca un film...">
-            <button>Cerca</button>
-        </form>
     
     </header>
 </template>
 
 <style lang="scss" scoped>
+@use '../assets/scss/partials/variables.scss' as *;
+
+    .logo-container{
+        width: 150px;
+    }
+
+    .my-search-button{
+        background-color: $netflix_color;
+    }
+
 </style>
