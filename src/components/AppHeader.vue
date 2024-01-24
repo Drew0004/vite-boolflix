@@ -13,19 +13,19 @@ export default {
 
             let finalUrlStringMovie = this.store.baseUrlMovies + queryString;
             let finalUrlStringSerie = this.store.baseUrlSeries + queryString;
-
+            
             axios.get(finalUrlStringMovie)
             .then((response)=>{
                 this.store.movies = response.data.results;
                 console.log('Array film',this.store.movies);
             });
-
+            
             axios.get(finalUrlStringSerie)
             .then((response)=>{
                 this.store.series = response.data.results;
                 console.log('Array serie',this.store.series);
             });
-
+            
             this.store.searchName = '';
         }
 
@@ -37,7 +37,7 @@ export default {
     <header>
         
         <div>
-            logo
+            <!-- <img src="../../public/LogoNetflix.png" alt="Logo Netflix"> -->
         </div>
         
         <form @submit.prevent="getDataFromAPi()">
