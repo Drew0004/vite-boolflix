@@ -20,17 +20,23 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h2>FILMS</h2>
-        <SingleMovie v-for="(movie, i) in this.store.movies" :key="i" :movie="movie"/>
-    </div>
-
-    <hr>
-
-    <div>
-        <h2>SERIES</h2>
-        <SingleSerie v-for="(serie, j) in this.store.series" :key="j" :serie="serie"/>
-    </div>
+    <main class="bg-black">
+        <div class="container-fluid px-4">
+            <div class="text-white">
+                <h2 class="fw-bold py-4">Movies</h2>
+                <div class="row justify-content-center">
+                    <SingleMovie v-for="(movie, i) in this.store.movies" :key="i" :movie="movie"/>
+                </div>
+            </div>
+    
+            <hr>
+    
+            <div class="text-white">
+                <h2 class="fw-bold">Tv Series</h2>
+                <SingleSerie v-for="(serie, j) in this.store.series" :key="j" :serie="serie"/>
+            </div>
+        </div>
+    </main>
     
 </template>
 
