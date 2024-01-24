@@ -9,15 +9,24 @@ export default {
     },
     methods: {
         getDataFromAPi(){
-            let queryMovie = this.store.searchName;
+            let queryString = this.store.searchName;
 
-            let finalUrlString = this.store.baseUrlMovies + queryMovie
+            let finalUrlStringMovie = this.store.baseUrlMovies + queryString;
+            let finalUrlStringSerie = this.store.baseUrlSeries + queryString;
 
-            axios.get(finalUrlString)
+            axios.get(finalUrlStringMovie)
             .then((response)=>{
                 this.store.movies = response.data.results;
-                console.log(this.store.movies);
+                console.log('Array film',this.store.movies);
             });
+
+            axios.get(finalUrlStringSerie)
+            .then((response)=>{
+                this.store.series = response.data.results;
+                console.log('Array serie',this.store.series);
+            });
+
+            this.store.searchName = '';
         }
 
     }
@@ -37,11 +46,24 @@ export default {
         </form>
 
         <div>
+            <h2>FILMS</h2>
             <ul v-for="(singleMovie, i) in this.store.movies">
                 <li>{{singleMovie.title}}</li>
                 <li>{{singleMovie.original_title}}</li>
                 <li>{{singleMovie.original_language}}</li>
                 <li>{{singleMovie.vote_average}}</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div>
+            <h2>SERIES</h2>
+            <ul v-for="(singleSerie, j) in this.store.series">
+                <li>{{singleSerie.name}}</li>
+                <li>{{singleSerie.original_name}}</li>
+                <li>{{singleSerie.original_language}}</li>
+                <li>{{singleSerie.vote_average}}</li>
             </ul>
         </div>
     

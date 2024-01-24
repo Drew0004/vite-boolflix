@@ -17,7 +17,7 @@ film trovato:
 3. Lingua
 4. Voto
 
-Milestone 2:
+Milestone 2: ---OK / Metà
 Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
 nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
 nazione ritornata dall’API (le flag non ci sono in FontAwesome).
