@@ -16,7 +16,10 @@ export default {
             }
         },
         voteMathFloor(x){
-            return Math.round(x);
+            x = Math.round(x);
+            x = x / 2;
+            return x
+             
         },
 
     },

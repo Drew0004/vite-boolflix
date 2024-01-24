@@ -15,8 +15,10 @@ export default {
             }
         },
         voteMathFloor(x){
-            return Math.round(x);
-        }
+            Math.round(x);
+            x = x / 2;
+            return x
+        },
     },
     props:{
         movie: Object
