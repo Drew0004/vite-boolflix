@@ -14,7 +14,10 @@ export default {
             if(this.serie.original_language == 'JA'){
                 this.serie.original_language = 'JP'
             }
-        }
+        },
+        voteMathFloor(x){
+            return Math.round(x);
+        },
 
     },
     props:{
@@ -22,11 +25,16 @@ export default {
     },
     mounted(){
         this.manageFlagLanguage();
+        this.serie.vote_average = this.voteMathFloor(this.serie.vote_average);
     }
 }
 </script>
 
 <template>
+    <img v-if="serie.backdrop_path !== null"  :src="'https://image.tmdb.org/t/p/w780/'+serie.backdrop_path" :alt="serie.name">
+    <div v-else class="bg-success w-25 ">
+        <h2>pic not found</h2>
+    </div>
     <ul>
         <li>{{serie.name}}</li>
         <li>{{serie.original_name}}</li>
