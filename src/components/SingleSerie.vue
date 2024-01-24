@@ -18,6 +18,7 @@ export default {
         voteMathFloor(x){
             x = Math.round(x);
             x = x / 2;
+            x = Math.ceil(x);
             return x
              
         },
@@ -34,7 +35,7 @@ export default {
 </script>
 
 <template>
-    <img v-if="serie.backdrop_path !== null"  :src="'https://image.tmdb.org/t/p/w780/'+serie.backdrop_path" :alt="serie.name">
+    <img v-if="serie.poster_path !== null"  :src="'https://image.tmdb.org/t/p/w780/'+serie.poster_path" :alt="serie.name">
     <div v-else class="bg-success w-25 ">
         <h2>pic not found</h2>
     </div>
@@ -44,8 +45,14 @@ export default {
         <li>{{serie.original_language}}</li>
         <li><img :src="'https://flagsapi.com/'+serie.original_language+'/flat/64.png'" alt=""></li>
         <li>{{serie.vote_average}}</li>
+        <li class="d-inline-block" v-for="i in 5">
+            <i :class="serie.vote_average >= i ? 'active' : '' " class="fa-solid fa-star"></i>
+        </li>
     </ul>
 </template>
 
 <style lang="scss" scoped>
+    .active{
+        color: rgb(255, 0, 0);
+    }
 </style>
