@@ -44,28 +44,6 @@ export default {
             <input v-model="this.store.searchName" type="text" placeholder="Cerca un film...">
             <button>Cerca</button>
         </form>
-
-        <div>
-            <h2>FILMS</h2>
-            <ul v-for="(singleMovie, i) in this.store.movies">
-                <li>{{singleMovie.title}}</li>
-                <li>{{singleMovie.original_title}}</li>
-                <li>{{singleMovie.original_language}}</li>
-                <li>{{singleMovie.vote_average}}</li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <div>
-            <h2>SERIES</h2>
-            <ul v-for="(singleSerie, j) in this.store.series">
-                <li>{{singleSerie.name}}</li>
-                <li>{{singleSerie.original_name}}</li>
-                <li>{{singleSerie.original_language}}</li>
-                <li>{{singleSerie.vote_average}}</li>
-            </ul>
-        </div>
     
     </header>
 </template>
