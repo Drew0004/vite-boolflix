@@ -24,16 +24,19 @@ export default {
         <div class="container-fluid px-4">
             <div class="text-white">
                 <h2 class="fw-bold py-4">Movies</h2>
+                <hr>
                 <div class="row justify-content-center">
                     <SingleMovie v-for="(movie, i) in this.store.movies" :key="i" :movie="movie"/>
                 </div>
             </div>
     
-            <hr>
     
             <div class="text-white">
-                <h2 class="fw-bold">Tv Series</h2>
-                <SingleSerie v-for="(serie, j) in this.store.series" :key="j" :serie="serie"/>
+                <h2 class="fw-bold pt-5 pb-4">Tv Series</h2>
+                <hr>
+                <div class="row justify-content-center ">
+                    <SingleSerie v-for="(serie, j) in this.store.series" :key="j" :serie="serie"/>
+                </div>
             </div>
         </div>
     </main>
@@ -41,4 +44,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+    hr{
+        border: 1px solid white;
+    }
 </style>

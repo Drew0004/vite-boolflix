@@ -65,10 +65,6 @@ export default {
         position: relative;
         overflow: hidden;
 
-        &:hover .single-card-container{
-
-        }
-
         &:hover .my-info-text{
             display: block;
             background-color: rgba($color: #000000, $alpha: 0.8);
