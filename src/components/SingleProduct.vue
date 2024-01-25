@@ -1,7 +1,9 @@
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
+            cast: []
         };
     },
     methods: {
@@ -24,15 +26,30 @@ export default {
             return x
              
         },
+        getDataCast(){
+            this.cast = [];
+            axios.get('https://api.themoviedb.org/3/'+this.type+'/'+this.singleProduct.id+'/credits?api_key=dfa13031b80dd317ebfeae295f5282f6')
+                .then((response)=>{
+                    for(let i = 0; i < 5; i++){
+                        this.cast.push(response.data.cast[i].name)
+                    }
+                })
+                .catch((error)=>{
+                    this.cast.name = 'Not found'
+
+                });
+        }
     },
     props:{
         singleProduct: Object,
         name: String,
-        originalName: String
+        originalName: String,
+        type : String
     },
     mounted(){
         this.manageFlagLanguage();
         this.singleProduct.vote_average = this.voteMathFloor(this.singleProduct.vote_average);
+        this.getDataCast();
     }
 }
 </script>
@@ -40,9 +57,7 @@ export default {
 <template>
     <div class="single-card-container">
         <img v-if="singleProduct.poster_path !== null" :src="'https://image.tmdb.org/t/p/w780/'+singleProduct.poster_path" :alt="singleProduct.title">
-        <div v-else class="single-card-container">
-            <h2>pic not found</h2>
-        </div>
+        <img v-else class="d-block object-fit-cover w-100 h-100" src="../../public/NotFound.jpg" alt="Image not found">
         <ul class="my-info-text text-start px-4">
             <li class="mb-2">Titolo: {{name}}</li>
             <li class="mb-2">Titolo originale: {{originalName}}</li>
@@ -53,6 +68,8 @@ export default {
                 <i :class="singleProduct.vote_average >= i ? 'active' : '' " class="px-1 fa-solid fa-star"></i>
             </li>
             <li class="fs-em pb-3 my-overview">Overview: {{ singleProduct.overview }}</li>
+            <li class="fw-bold">Cast:</li>
+            <li v-for="(singleName, i) in cast" class="fs-em"> &bull; {{ singleName }}</li>
         </ul>
     </div>
 </template>
@@ -74,13 +91,12 @@ export default {
         &:hover .my-info-text{
             display: block;
             background-color: rgba($color: #000000, $alpha: 0.8);
-            padding-top: 100%;
-            ::-webkit-scrollbar {
-            width: 5px;
+            &::-webkit-scrollbar {
+            width: 7px;
             }
-            ::-webkit-scrollbar-thumb {
-                background: #E50C14;
-                border-radius: 2px;
+            &::-webkit-scrollbar-thumb {
+            background: #E50C14;
+            border-radius: 5px;
             }
         }
         
@@ -95,11 +111,9 @@ export default {
             position: absolute;
             bottom: 0px;
             display: none;
-            
-            .my-overview{
-                height: 150px;
-                overflow: auto;
-            }
+            height: 100%;
+            overflow: auto;
+            padding: 10px 0;
         }
 
         .country-flag{

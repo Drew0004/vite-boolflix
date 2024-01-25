@@ -40,7 +40,7 @@ export default {
                 <h2 class="fw-bold py-4">Movies</h2>
                 <hr>
                 <div class="row justify-content-center">
-                    <SingleProduct v-for="(elem, i) in this.store.movies" :key="i" :singleProduct="elem" :name="elem.title"  :originalName="elem.original_title"/>
+                    <SingleProduct v-for="(elem, i) in this.store.movies" :key="i" :singleProduct="elem" :name="elem.title"  :originalName="elem.original_title" :type="'movie'"/>
                 </div>
             </div>
     
@@ -49,7 +49,7 @@ export default {
                 <h2 class="fw-bold pt-5 pb-4">Tv Series</h2>
                 <hr>
                 <div class="row justify-content-center ">
-                    <SingleProduct v-for="(elem, j) in this.store.series" :key="j" :singleProduct="elem" :name="elem.name"  :originalName="elem.original_name"/>
+                    <SingleProduct v-for="(elem, j) in this.store.series" :key="j" :singleProduct="elem" :name="elem.name"  :originalName="elem.original_name" :type="'tv'"/>
                 </div>
             </div>
         </div>

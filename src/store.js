@@ -12,10 +12,8 @@ export const store = reactive({
     baseUrlImg:'https://image.tmdb.org/t/p/w780/',
 
     baseUrlCastMovie: 'https://api.themoviedb.org/3/movie/268/credits?api_key=dfa13031b80dd317ebfeae295f5282f6',
-    baseUrlCastSerie: 'https://api.themoviedb.org/3/tv/268/credits?api_key=dfa13031b80dd317ebfeae295f5282f6',
     
     searchName: '',
     movies : [],
     series : [],
-    cast: [],
 });
