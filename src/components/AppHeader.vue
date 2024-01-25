@@ -49,7 +49,7 @@ export default {
                 <div class="col-auto">
                     <form @submit.prevent="getDataFromAPi()" class="d-flex">
                         <div class="me-3">
-                            <input v-model="this.store.searchName" type="text" class="form-control" placeholder="Cerca un film o una serie...">
+                            <input v-model="this.store.searchName" type="text" class="my-input form-control" placeholder="Cerca un film o una serie...">
                         </div>
                         <div>
                             <button class="btn my-search-button text-white">Cerca</button>
@@ -81,6 +81,9 @@ export default {
         }
     }
 
+    .my-input{
+        width: 500px;
+    }
     .my-search-button{
         background-color: $netflix_color;
     }
