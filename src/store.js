@@ -16,5 +16,6 @@ export const store = reactive({
     
     searchName: '',
     movies : [],
-    series : [], 
+    series : [],
+    cast: [],
 });

@@ -20,6 +20,7 @@ export default {
             .then((response)=>{
                 this.store.movies = response.data.results;
                 console.log('Array film',this.store.movies);
+
             });
 
         axios.get(this.store.trendUrlSeries)
