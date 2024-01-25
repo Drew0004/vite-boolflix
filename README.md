@@ -56,3 +56,8 @@ di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (co
 la poster_path con w342)
 ● Andando con il mouse sopra una card (on hover), appaiono le informazioni
 aggiuntive già prese nei punti precedenti più la overview
+
+
+Step da seguire per fare la chiamata su trend: 
+fare la chiamata sul trend nell'app main al mounted,
+svuotare l'array di appHeader prima di effettuare la chiamata col form;

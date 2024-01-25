@@ -13,6 +13,9 @@ export default {
             if(this.movie.original_language == 'JA'){
                 this.movie.original_language = 'JP'
             }
+            if(this.movie.original_language == 'KO'){
+                this.movie.original_language = 'KR'
+            }
         },
         voteMathFloor(x){
             x = Math.round(x);

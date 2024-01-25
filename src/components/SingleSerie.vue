@@ -14,6 +14,9 @@ export default {
             if(this.serie.original_language == 'JA'){
                 this.serie.original_language = 'JP'
             }
+            if(this.serie.original_language == 'KO'){
+                this.serie.original_language = 'KR'
+            }
         },
         voteMathFloor(x){
             x = Math.round(x);

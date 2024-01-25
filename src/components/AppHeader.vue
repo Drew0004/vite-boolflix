@@ -9,6 +9,9 @@ export default {
     },
     methods: {
         getDataFromAPi(){
+            this.store.movies = []
+            this.store.series = []
+
             let queryString = this.store.searchName;
 
             let finalUrlStringMovie = this.store.baseUrlMovies + queryString;

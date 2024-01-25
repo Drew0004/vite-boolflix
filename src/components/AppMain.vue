@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import { store } from '../store.js';
 import SingleMovie from './SingleMovie.vue';
 import SingleSerie from './SingleSerie.vue';
@@ -15,6 +16,19 @@ export default {
     components:{
         SingleMovie,
         SingleSerie
+    },
+    mounted(){
+        axios.get(this.store.trendUrlMovies)
+            .then((response)=>{
+                this.store.movies = response.data.results;
+                console.log('Array film',this.store.movies);
+            });
+
+        axios.get(this.store.trendUrlSeries)
+        .then((response)=>{
+            this.store.series = response.data.results;
+            console.log('Array serie',this.store.series);
+        });
     }
 }
 </script>
