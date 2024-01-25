@@ -50,7 +50,7 @@ export default {
             <li class="d-inline-block" v-for="i in 5">
                 <i :class="movie.vote_average >= i ? 'active' : '' " class="px-1 fa-solid fa-star"></i>
             </li>
-            <li class="fs-em pb-3">Overview: {{ movie.overview }}</li>
+            <li class="fs-em pb-3 my-overview">Overview: {{ movie.overview }}</li>
         </ul>
     </div>
 </template>
@@ -73,19 +73,31 @@ export default {
             display: block;
             background-color: rgba($color: #000000, $alpha: 0.8);
             padding-top: 100%;
+            ::-webkit-scrollbar {
+            width: 5px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #E50C14;
+                border-radius: 2px;
+            }
         }
-
+        
         img{
             display: block;
             width: 100%;
             object-fit: cover;
             object-position: center;
         }
-
+        
         .my-info-text{
             position: absolute;
             bottom: 0px;
             display: none;
+            
+            .my-overview{
+                height: 150px;
+                overflow: auto;
+            }
         }
 
         .country-flag{
