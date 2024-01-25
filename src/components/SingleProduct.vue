@@ -6,15 +6,15 @@ export default {
     },
     methods: {
         manageFlagLanguage(){
-            this.movie.original_language = this.movie.original_language.toUpperCase();
-            if(this.movie.original_language == 'EN'){
-                this.movie.original_language = 'US'
+            this.singleProduct.original_language = this.singleProduct.original_language.toUpperCase();
+            if(this.singleProduct.original_language == 'EN'){
+                this.singleProduct.original_language = 'US'
             }
-            if(this.movie.original_language == 'JA'){
-                this.movie.original_language = 'JP'
+            if(this.singleProduct.original_language == 'JA'){
+                this.singleProduct.original_language = 'JP'
             }
-            if(this.movie.original_language == 'KO'){
-                this.movie.original_language = 'KR'
+            if(this.singleProduct.original_language == 'KO'){
+                this.singleProduct.original_language = 'KR'
             }
         },
         voteMathFloor(x){
@@ -26,31 +26,33 @@ export default {
         },
     },
     props:{
-        movie: Object
+        singleProduct: Object,
+        name: String,
+        originalName: String
     },
     mounted(){
         this.manageFlagLanguage();
-        this.movie.vote_average = this.voteMathFloor(this.movie.vote_average);
+        this.singleProduct.vote_average = this.voteMathFloor(this.singleProduct.vote_average);
     }
 }
 </script>
 
 <template>
     <div class="single-card-container">
-        <img v-if="movie.poster_path !== null" :src="'https://image.tmdb.org/t/p/w780/'+movie.poster_path" :alt="movie.title">
+        <img v-if="singleProduct.poster_path !== null" :src="'https://image.tmdb.org/t/p/w780/'+singleProduct.poster_path" :alt="singleProduct.title">
         <div v-else class="single-card-container">
             <h2>pic not found</h2>
         </div>
         <ul class="my-info-text text-start px-4">
-            <li class="mb-2">Titolo: {{movie.title}}</li>
-            <li class="mb-2">Titolo originale: {{movie.original_title}}</li>
-            <li>Lingua: {{movie.original_language}}</li>
-            <li class="mb-2"><img class="country-flag" :src="'https://flagsapi.com/'+movie.original_language+'/flat/64.png'" alt=""></li>
-            <li class="mb-2 d-inline-block pe-2">Rating: {{movie.vote_average}}</li>
+            <li class="mb-2">Titolo: {{name}}</li>
+            <li class="mb-2">Titolo originale: {{originalName}}</li>
+            <li>Lingua: {{singleProduct.original_language}}</li>
+            <li class="mb-2"><img class="country-flag" :src="'https://flagsapi.com/'+singleProduct.original_language+'/flat/64.png'" alt=""></li>
+            <li class="mb-2 d-inline-block pe-2">Rating: {{singleProduct.vote_average}}</li>
             <li class="d-inline-block" v-for="i in 5">
-                <i :class="movie.vote_average >= i ? 'active' : '' " class="px-1 fa-solid fa-star"></i>
+                <i :class="singleProduct.vote_average >= i ? 'active' : '' " class="px-1 fa-solid fa-star"></i>
             </li>
-            <li class="fs-em pb-3 my-overview">Overview: {{ movie.overview }}</li>
+            <li class="fs-em pb-3 my-overview">Overview: {{ singleProduct.overview }}</li>
         </ul>
     </div>
 </template>

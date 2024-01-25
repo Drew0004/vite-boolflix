@@ -1,8 +1,7 @@
 <script>
 import axios from 'axios';
 import { store } from '../store.js';
-import SingleMovie from './SingleMovie.vue';
-import SingleSerie from './SingleSerie.vue';
+import singleProduct from './singleProduct.vue';
 
 export default {
     data() {
@@ -14,8 +13,7 @@ export default {
 
     },
     components:{
-        SingleMovie,
-        SingleSerie
+        singleProduct,
     },
     mounted(){
         axios.get(this.store.trendUrlMovies)
@@ -40,7 +38,7 @@ export default {
                 <h2 class="fw-bold py-4">Movies</h2>
                 <hr>
                 <div class="row justify-content-center">
-                    <SingleMovie v-for="(movie, i) in this.store.movies" :key="i" :movie="movie"/>
+                    <singleProduct v-for="(elem, i) in this.store.movies" :key="i" :singleProduct="elem" :name="elem.title"  :originalName="elem.original_title"/>/>
                 </div>
             </div>
     
@@ -49,7 +47,7 @@ export default {
                 <h2 class="fw-bold pt-5 pb-4">Tv Series</h2>
                 <hr>
                 <div class="row justify-content-center ">
-                    <SingleSerie v-for="(serie, j) in this.store.series" :key="j" :serie="serie"/>
+                    <singleProduct v-for="(elem, j) in this.store.series" :key="j" :singleProduct="elem" :name="elem.name"  :originalName="elem.original_name"/>
                 </div>
             </div>
         </div>
