@@ -16,6 +16,7 @@ export default {
 
             let finalUrlStringMovie = this.store.baseUrlMovies + queryString;
             let finalUrlStringSerie = this.store.baseUrlSeries + queryString;
+
             
             axios.get(finalUrlStringMovie)
             .then((response)=>{

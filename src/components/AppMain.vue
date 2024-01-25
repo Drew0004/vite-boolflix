@@ -27,7 +27,8 @@ export default {
             this.store.series = response.data.results;
             console.log('Array serie',this.store.series);
         });
-    }
+
+    },
 }
 </script>
 
@@ -38,7 +39,7 @@ export default {
                 <h2 class="fw-bold py-4">Movies</h2>
                 <hr>
                 <div class="row justify-content-center">
-                    <SingleProduct v-for="(elem, i) in this.store.movies" :key="i" :singleProduct="elem" :name="elem.title"  :originalName="elem.original_title"/>/>
+                    <SingleProduct v-for="(elem, i) in this.store.movies" :key="i" :singleProduct="elem" :name="elem.title"  :originalName="elem.original_title"/>
                 </div>
             </div>
     
