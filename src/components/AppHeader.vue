@@ -42,7 +42,8 @@ export default {
             <div class="row justify-content-between align-items-center">
 
                 <div class="logo-container">
-                    <img class="w-100" src="../../public/LogoNetflix.png" alt="Logo Netflix">
+                    <h2 class="my-netflix-logo">Boolflix</h2>
+                    <!-- <img class="w-100" src="../../public/LogoNetflix.png" alt="Logo Netflix"> -->
                 </div>
 
                 <div class="col-auto">
@@ -70,6 +71,14 @@ export default {
 
     .logo-container{
         width: 150px;
+
+        .my-netflix-logo{
+            color: $netflix_color;
+            text-transform: uppercase;
+            font-family: 'bebas neue';
+            margin: 0;
+            font-size: 2.5em;
+        }
     }
 
     .my-search-button{

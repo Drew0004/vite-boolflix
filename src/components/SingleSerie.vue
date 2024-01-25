@@ -69,6 +69,7 @@ export default {
         padding: 0;
         position: relative;
         overflow: hidden;
+        cursor: pointer;
 
         &:hover .my-info-text{
             display: block;
