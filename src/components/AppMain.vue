@@ -58,6 +58,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+    main{
+        padding-top: 100px;
+    }
     hr{
         border: 1px solid white;
     }

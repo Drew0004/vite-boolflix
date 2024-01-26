@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-    <header class=" w-100 bg-dark py-4">
+    <header class=" w-100 bg-dark py-4 position-fixed z-1">
         <div class="container-fluid px-4">
             <div class="row justify-content-between align-items-center">
 
