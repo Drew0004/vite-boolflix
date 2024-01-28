@@ -59,8 +59,8 @@ export default {
         <img v-if="singleProduct.poster_path !== null" :src="'https://image.tmdb.org/t/p/w780/'+singleProduct.poster_path" :alt="singleProduct.title">
         <img v-else class="d-block object-fit-cover w-100 h-100" src="../../public/NotFound.jpg" alt="Image not found">
         <ul class="my-info-text text-start px-4">
-            <li class="mb-2">Titolo: {{name}}</li>
-            <li class="mb-2">Titolo originale: {{originalName}}</li>
+            <li class="mb-2">Titolo: "{{name}}"</li>
+            <li class="mb-2">Titolo originale: "{{originalName}}"</li>
             <li>Lingua: {{singleProduct.original_language}}</li>
             <li class="mb-2"><img class="country-flag" :src="'https://flagsapi.com/'+singleProduct.original_language+'/flat/64.png'" alt=""></li>
             <li class="mb-2 d-inline-block pe-2">Rating: {{singleProduct.vote_average}}</li>
@@ -79,14 +79,19 @@ export default {
         font-size: 0.8em;
     }
     .single-card-container{
-        width: calc((100% / 4) - 30px);
+        width: calc((100% / 4) - 40px);
         border: 0.5px solid #E50C14;
         border-radius: 20px;
-        margin: 15px 15px;
+        margin: 20px 20px;
         padding: 0;
         position: relative;
         overflow: hidden;
         cursor: pointer;
+
+        &:hover{
+            scale:1.1;
+            transition: 0.2s ease-in-out;
+        }
 
         &:hover .my-info-text{
             display: block;
@@ -117,8 +122,8 @@ export default {
         }
 
         .country-flag{
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
         }
         .active{
             color: #E50C14;

@@ -62,6 +62,6 @@ export default {
         padding-top: 100px;
     }
     hr{
-        border: 1px solid white;
+        border: 1px solid rgb(112, 112, 112);
     }
 </style>

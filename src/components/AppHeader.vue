@@ -38,7 +38,7 @@ export default {
 </script>
 
 <template>
-    <header class=" w-100 bg-dark py-4 position-fixed z-1">
+    <header class=" w-100 bg-black py-4 position-fixed z-1 my-border-bottom">
         <div class="container-fluid px-4">
             <div class="row justify-content-between align-items-center">
 
@@ -70,6 +70,10 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables.scss' as *;
 
+    .my-border-bottom{
+        border-bottom: 1px solid rgb(31, 31, 31);
+    
+    }
     .logo-container{
         width: 150px;
 
