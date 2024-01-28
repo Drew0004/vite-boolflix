@@ -90,10 +90,10 @@ export default {
         position: relative;
         overflow: hidden;
         cursor: pointer;
+        transition: 0.3s ease-in-out;
 
         &:hover{
             scale:1.1;
-            transition: 0.2s ease-in-out;
         }
 
         &:hover .my-info-text{

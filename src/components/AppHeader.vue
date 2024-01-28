@@ -87,7 +87,7 @@ export default {
     }
 
     .my-input{
-        width: 500px;
+        width: 400px;
     }
     .my-search-button{
         background-color: $netflix_color;
