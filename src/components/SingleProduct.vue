@@ -18,6 +18,9 @@ export default {
             if(this.singleProduct.original_language == 'KO'){
                 this.singleProduct.original_language = 'KR'
             }
+            if(this.singleProduct.original_language == 'HI'){
+                this.singleProduct.original_language = 'IN'
+            }
         },
         voteMathFloor(x){
             x = Math.round(x);

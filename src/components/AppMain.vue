@@ -24,10 +24,10 @@ export default {
             });
 
         axios.get(this.store.trendUrlSeries)
-        .then((response)=>{
-            this.store.series = response.data.results;
-            console.log('Array serie',this.store.series);
-        });
+            .then((response)=>{
+                this.store.series = response.data.results;
+                console.log('Array serie',this.store.series);
+            });
 
     },
 }
